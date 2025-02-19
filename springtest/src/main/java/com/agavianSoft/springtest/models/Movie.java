@@ -2,10 +2,9 @@ package com.agavianSoft.springtest.models;
 
 import java.util.List;
 
-import org.springframework.boot.autoconfigure.domain.EntityScan;
-
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -27,6 +26,7 @@ public class Movie {
 	private String genre;
 	private int releaseYear;
 	
-	@OneToMany(mappedBy = "movie", cascade = CascadeType.ALL)
-    private List<Review> reviews;
+	 @OneToMany(mappedBy = "movie", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	 private List<Review> reviews;
+	
 }
